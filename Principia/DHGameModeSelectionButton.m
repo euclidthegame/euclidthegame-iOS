@@ -40,9 +40,9 @@
         _shadowOffsetSelected = CGSizeMake(1, 1);
         
         if (_iPhoneVersion) {
-            _shadowRadius = 4.0;
+            _shadowRadius = 0.0;
             _shadowRadiusSelected = 1.5;
-            _shadowOffset = CGSizeMake(1.5, 1.5);
+            _shadowOffset = CGSizeMake(0.5, 0.5);
         }
         
         self.userInteractionEnabled = YES;
@@ -54,6 +54,11 @@
         self.layer.shadowRadius = _shadowRadius;
         self.layer.borderWidth = 0.5;
         self.layer.borderColor = [UIColor colorWithWhite:0.8 alpha:1.0].CGColor;
+        
+        
+        if (_iPhoneVersion) {
+             self.layer.cornerRadius = 2.0;
+        }
         
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         _titleLabel.textColor = [[UIApplication sharedApplication] delegate].window.tintColor;
